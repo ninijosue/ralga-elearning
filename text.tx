@@ -1,0 +1,44 @@
+<?php  // Moodle configuration file
+
+unset($CFG);
+global $CFG;
+$CFG = new stdClass();
+
+$CFG->dbtype    = 'mariadb';           // Database type: 'mysqli' for MySQL/MariaDB, 'pgsql' for PostgreSQL
+$CFG->dblibrary = 'native';           // Database library, usually 'native'
+$CFG->dbhost    = 'db';            // Database host: container name (e.g., 'mysql' if linked in Docker) or IP (e.g., 'localhost' or '172.17.0.2')
+$CFG->dbname    = 'moodle';           // Database name
+$CFG->dbuser    = 'root';      // Database username
+$CFG->dbpass    = 'gov@123';  // Database password
+$CFG->prefix    = 'mdl_';             // Database table prefix (default is 'mdl_')
+$CFG->dboptions = array (
+  'dbpersist' => 0,                   // Set to 0 for non-persistent connections
+  'dbport' => '',                     // Database port, leave empty if default (3306 for MySQL/MariaDB)
+  'dbsocket' => '',                   // Database socket path, leave empty unless using a socket
+);
+
+$CFG->wwwroot   = 'http://localhost:8086'; // Moodle site URL (adjust to your domain or IP and port)
+$CFG->dataroot  = '/var/www/moodledata';   // Moodle data directory (must be outside web root, writable by www-data)
+$CFG->admin     = 'admin';                 // Default admin username
+
+$CFG->directorypermissions = 02775;        // Permissions for directories created by Moodle
+$CFG->filepermissions      = 0664;         // Permissions for files created by Moodle
+
+// Performance settings (optional, recommended for production)
+$CFG->cachejs = true;                      // Enable JavaScript caching
+$CFG->localcachedir = '/var/www/moodledata/localcache'; // Local cache directory
+
+// SSL/TLS (uncomment if using HTTPS)
+// $CFG->wwwroot = 'https://yourdomain.com';
+// $CFG->sslproxy = true;
+
+// Debugging (disable in production)
+// $CFG->debug = (DEBUG_DEVELOPER); // For development
+// $CFG->debugdisplay = 1;            // For development
+$CFG->debug = 0;                     // For production
+$CFG->debugdisplay = 0;              // For production
+
+require_once(__DIR__ . '/lib/setup.php');
+
+// There is no php closing tag in this file,
+// it is intentional because it prevents trailing whitespace problems!

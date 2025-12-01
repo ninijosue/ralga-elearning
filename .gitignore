@@ -1,0 +1,43 @@
+# Database
+db/
+
+# Moodle data directory
+moodledata/
+
+# Initialization scripts
+init-scripts/
+
+# Moodle config
+elearning/config.php
+
+# Cache directories
+localcache/
+cache/
+sessions/
+temp/
+elearning/localcache/
+elearning/cache/
+elearning/sessions/
+elearning/temp/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Node modules (if any)
+node_modules/
