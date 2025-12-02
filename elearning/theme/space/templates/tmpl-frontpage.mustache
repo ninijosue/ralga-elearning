@@ -356,6 +356,41 @@
         padding-right: 0 !important;
         padding-left: 0 !important;
     }
+
+    /* Responsive breakpoints for Platform Offers */
+    @media only screen and (max-width: 1400px) {
+        .offers-cards {
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 25px !important;
+        }
+        .offer-card {
+            padding: 60px 30px 55px !important;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .offers-cards {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 25px !important;
+        }
+        .platform-offers-container {
+            max-width: 1000px !important;
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        .offers-cards {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 30px !important;
+        }
+        .platform-offers-container {
+            max-width: 700px !important;
+        }
+        .offer-card {
+            padding: 60px 30px 55px !important;
+        }
+    }
+
     @media only screen and (max-width: 800px){
         #page-wrapper #page {
             padding-right: 15px !important;
@@ -574,8 +609,51 @@
         .d_flex {
             gap: 40px !important;
         }
-      
+
     }
+
+    /* Extra small devices (phones) */
+    @media only screen and (max-width: 576px) {
+        .platform-offers-section {
+            padding: 40px 0 !important;
+            margin: 30px 0 !important;
+        }
+        .platform-offers-title {
+            font-size: 1.5rem !important;
+        }
+        .platform-offers-subtitle {
+            font-size: 0.85rem !important;
+            margin-bottom: 30px !important;
+            padding: 0 10px !important;
+        }
+        .offers-cards {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            max-width: 280px !important;
+            margin: 0 auto !important;
+        }
+        .offer-card {
+            padding: 45px 25px 40px !important;
+            aspect-ratio: 1 / 1.1 !important;
+        }
+        .offer-icon {
+            width: 45px !important;
+            height: 45px !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 12px !important;
+        }
+        .offer-card-title {
+            font-size: 0.8rem !important;
+            margin-bottom: 8px !important;
+            padding: 0 5px !important;
+        }
+        .offer-card-description {
+            font-size: 0.68rem !important;
+            padding: 0 10px !important;
+            line-height: 1.35 !important;
+        }
+    }
+
     .main_content_display{
         overflow-y: hidden;
         height: fit-content;
@@ -940,7 +1018,7 @@
         }
 
         .platform-offers-container {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 20px;
             text-align: center;
