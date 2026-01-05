@@ -146,7 +146,7 @@
                     </div><!-- .rui-login-box -->
 
                     {{#loginlayoutimg}}
-                    <div class="rui-login-bg-container" style="background-image: url('{{loginbg}}');">
+                    <div class="rui-login-bg-container" style="background-image: url('{{#loginbg}}{{loginbg}}{{/loginbg}}{{^loginbg}}{{{ config.wwwroot }}}/theme/space/pix/login_signup_bg.jpg{{/loginbg}}');">
                         {{#signuptext}}
                             <div class="rui-login-additional-content">
                             {{{signuptext}}}
@@ -191,7 +191,83 @@
             <span class="ml-1">{{#str}}cookiesnotice{{/str}}</span></button>
 
         </div><!-- .login layout -->
+
+<style>
+body.pagelayout-login {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+#page {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.rui-login-content {
+    font-size: 18px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 8px !important;
+   
+}
+
+.rui-login-content input,
+.rui-login-content button,
+.rui-login-content a,
+.rui-login-content p,
+.rui-login-content label {
+    font-size: 16px !important;
+}
+
+.rui-login-layout {
     
+    background-image: url('{{{ config.wwwroot }}}/theme/space/pix/login_signup_bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+@media (max-width: 767.98px) {
+.rui-login-content {
+    max-width: inherit !important;
+    padding: 33px !important;
+    font-size: 19px !important;
+}
+
+.rui-login-layout {
+    display: block !important;
+}
+
+.rui-login-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.rui-login-container {
+    width: 100% !important;
+    flex-direction: column !important;
+}
+
+.rui-login-box {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.rui-login-bg-container {
+    display: none !important;
+}
+}
+</style>
 
         {{#maintenance}}
         <div class="rui-maintenance alert alert-warning wrapper-md my-4 p-5">

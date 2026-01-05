@@ -313,22 +313,15 @@
             {{/hasidentityproviders}}
         {{/loginidprovtop}}
 
-        <div class="rui-login-additional-btns">
-            {{#canloginasguest}}
-            <hr class="hr-small" />
-                <div class="rui-canloginasguest mt-2" title="{{#str}}someallowguest{{/str}} testing ">
-                    <!-- <p class="small text-center">{{#str}}someallowguest{{/str}} testing</p> -->
-                    <p class="small text-center">Don't have an account?</p>
-                    <form action="{{loginurl}}" method="post" id="guestlogin">
-                        <input type="hidden" name="logintoken" value="{{logintoken}}">
-                        <input type="hidden" name="username" value="guest" />
-                        <input type="hidden" name="password" value="guest" />
-                        <!-- <button class="btn btn-sm btn-outline-secondary w-100" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}} testing </button> -->
-                        <a href="/login/signup.php?" class="btn btn-sm btn-outline-secondary w-100" style="background:grey; color: white;" type="link" > Create new account </a>
-                    </form>
-                </div>
-            {{/canloginasguest}}
-        </div><!-- .rui-additional-btns -->
+        <div class="rui-login-additional-btns " >
+             <hr class="hr-small" />
+            <p class="small text-center">Is this your first time here?</p>
+
+             <a href="/login/signup.php?" class="btn btn-sm btn-outline-secondary w-100" style="background:grey; color: white;" type="link" > Create new account </a>
+        </div>
+                    
+
+        <!-- .rui-additional-btns -->
 
         {{#cansignup}}
             <!--
@@ -345,6 +338,21 @@
             {{/customsignupoutside}}
             -->
         {{/cansignup}}
+         <div class="rui-login-additional-btns">
+            {{#canloginasguest}}
+            <hr class="hr-small" />
+                <div class="rui-canloginasguest mt-2" title="{{#str}}someallowguest{{/str}} testing ">
+                    <p class="small text-center">{{#str}}someallowguest{{/str}}</p> 
+                    <form action="{{loginurl}}" method="post" id="guestlogin">
+                        <input type="hidden" name="logintoken" value="{{logintoken}}">
+                        <input type="hidden" name="username" value="guest" />
+                        <input type="hidden" name="password" value="guest" />
+                        <button class="btn btn-sm btn-outline-secondary w-100" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}}  </button>
+                    </form>
+                </div>
+            {{/canloginasguest}}
+           
+        </div>
 
         {{#loginhtmlblockbottom}}
             <div class="rui-login-bottom-block">
@@ -387,7 +395,7 @@
 {{/maintenance}}
 
 {{#loginlayoutimg}}
-    <div class="rui-login-bg-container" style="background-image: url('{{loginbg}}');" aria-hidden="true">
+    <div class="rui-login-bg-container" style="background-image: url('{{#loginbg}}{{loginbg}}{{/loginbg}}{{^loginbg}}{{{ config.wwwroot }}}/theme/space/pix/login_signup_bg.jpg{{/loginbg}}');" aria-hidden="true">
         {{#loginhtmlcontent2}}
             <div class="rui-login-additional-content">
                 {{{loginhtmlcontent2}}}
@@ -434,11 +442,78 @@
 </div><!-- .login layout -->
 
 <style>
+body.pagelayout-login {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+#page {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.rui-login-content {
+    font-size: 18px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 8px !important;
+   
+}
+
+.rui-login-content input,
+.rui-login-content button,
+.rui-login-content a,
+.rui-login-content p,
+.rui-login-content label {
+    font-size: 16px !important;
+}
+
+.rui-login-layout {
+   
+    background-image: url('{{{ config.wwwroot }}}/theme/space/pix/login_signup_bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
 @media (max-width: 767.98px) {
 .rui-login-content {
     max-width: inherit !important;
     padding: 33px !important;
     font-size: 19px !important;
+}
+
+.rui-login-layout {
+    display: block !important;
+}
+
+.rui-login-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.rui-login-container {
+    width: 100% !important;
+    flex-direction: column !important;
+}
+
+.rui-login-box {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.rui-login-bg-container {
+    display: none !important;
 }
 }
 </style>

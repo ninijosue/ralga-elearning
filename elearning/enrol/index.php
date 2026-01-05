@@ -133,7 +133,7 @@ $content = "
         padding: 0 60px !important;
     }
         .btn-success, #changenumsections a, .rui-quizattemptsummary .c3 a, .quizsummaryofattempt .c0 a, #page-enrol-index .main-content [type='submit']{
-           background-color: #1c9ff9;
+           background-color: #00008b;
             border: 1px solid transparent;
             color: #e6eaf7;
             margin-top: 0;

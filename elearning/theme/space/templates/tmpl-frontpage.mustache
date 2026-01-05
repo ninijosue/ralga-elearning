@@ -210,15 +210,15 @@
                                                 <img src="{{wwwroot}}/theme/space/pix/quality_training_right_image.svg" alt="Our Mission" />
                                             </div>
                                             <div class="mission-content">
-                                                <h2 class="mission-title">Our Mission</h2>
-                                                <h3 class="mission-subtitle">Mission & Platform Purpose</h3>
+                                                <h2 class="mission-title">Our Purpose</h2>
+                                                <h3 class="mission-subtitle">Platform Purpose</h3>
                                                 <p class="mission-description">
                                                     The mission of RALGA's e-learning hub is centered on the commitment of quality education to enhance training opportunities to the sector leaders and staff members across Rwanda. We provide accessible, high-quality training designed to build strong local governance, improve service delivery, and empower district and sector officials with the skills they need to drive sustainable development. The platform supports continuous professional growth, aligning with Rwanda's vision for a responsive, citizen-centered public administration.
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <!-- Bottom Section: Partnership & Goals -->
+                                        <!-- Bottom Section: Partnership & Goals 
                                         <div class="mission-bottom">
                                             <div class="partnership-content">
                                                 <h3 class="partnership-title">Partnership & Goals</h3>
@@ -230,9 +230,11 @@
                                                 <img src="{{wwwroot}}/theme/space/pix/mission_image_hat.svg" alt="Partnership Goals" />
                                             </div>
                                         </div>
+                                        -->
                                     </div>
                                 </div>
-
+                                <!-- testimonial section -->
+                                
                                 <!-- platform offers section -->
                                 <div class="platform-offers-section">
                                     <div class="platform-offers-container">
@@ -726,7 +728,7 @@
         .section-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #1c9ff9;
+            color: #00008b;
             text-align: center;
             margin-bottom: 4rem;
             margin-top: 20px
@@ -752,7 +754,7 @@
         .offer-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #1c9ff9 0%, #0d7bc9 100%);
+            background: linear-gradient(135deg, #00008b 0%, #000066 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -778,14 +780,14 @@
     
   /* RALGA Brand Colors */
   :root {
-    --ralga-primary: #1c9ff9;
-    --ralga-primary-dark: #0d7bc9;
-    --ralga-primary-light: #4db3fc;
+    --ralga-primary: #00008b;
+    --ralga-primary-dark: #000066;
+    --ralga-primary-light: #0000cd;
   }
 
   /* Button Styles */
   .btn-primary, .explore_courses_btn {
-    background: #1C9FF9 !important;
+    background: #00008b !important;
     border: none !important;
     color: white !important;
     padding: 14px 32px !important;
@@ -971,7 +973,7 @@
         .mission-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #1C9FF9;
+            color: #00008b;
             margin-bottom: 16px;
             line-height: 1.2;
         }
@@ -1004,7 +1006,7 @@
         .partnership-title {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #1C9FF9;
+            color: #00008b;
             margin-bottom: 16px;
         }
 
@@ -1043,7 +1045,7 @@
         .platform-offers-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #1C9FF9;
+            color: #00008b;
             margin-bottom: 20px;
             line-height: 1.2;
         }
@@ -1090,7 +1092,7 @@
         .offer-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #1C9FF9 0%, #0D7BC9 100%);
+            background: linear-gradient(135deg, #00008b 0%, #000066 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1112,7 +1114,7 @@
         }
 
         .offer-card-title .highlight {
-            color: #1C9FF9;
+            color: #00008b;
         }
 
         .offer-card-description {
@@ -1150,7 +1152,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, #1c9ff9 0%, #0d7bc9 100%);
+            background: linear-gradient(90deg, #00008b 0%, #000066 100%);
         }
 
         .about-section-card:hover {
@@ -1172,7 +1174,7 @@
         .about-icon-wrapper {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #1c9ff9 0%, #0d7bc9 100%);
+            background: linear-gradient(135deg, #00008b 0%, #000066 100%);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -1189,7 +1191,7 @@
         .about-section-title {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #1c9ff9;
+            color: #00008b;
             margin-bottom: 20px;
             line-height: 1.3;
         }
@@ -1252,7 +1254,7 @@
         }
 
         .skill-badge i {
-            color: #1c9ff9;
+            color: #00008b;
             font-size: 1rem;
         }
            .partners-section {
@@ -1265,14 +1267,14 @@
             text-align: center;
             font-size: 3rem;
             font-weight: 600;
-            color: #1c9ff9;
+            color: #00008b;
             margin-bottom: 50px;
         }
         .about-title{
             text-align: center;
             font-size: 3rem;
             font-weight: 600;
-            color: #1c9ff9;
+            color: #00008b;
             margin-top: 50px;
         }
         
@@ -1329,6 +1331,417 @@
             .partner-logo {
                 width: 80px;
                 height: 50px;
+            }
+        }
+
+        /* ========== ANIMATION KEYFRAMES ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        /* ========== HERO SECTION ANIMATIONS ========== */
+        .hero-content_home h1 {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-content_home p {
+            animation: fadeInLeft 1.2s ease-out;
+        }
+
+        .hero-content_home .btn {
+            animation: fadeInUp 1.4s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .hero-content_home .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 139, 0.3);
+        }
+
+        .hero-images_home img {
+            animation: fadeInRight 1.2s ease-out, float 6s ease-in-out infinite;
+        }
+
+        .hero-highlight {
+            position: relative;
+            display: inline-block;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* ========== QUALITY SECTION ANIMATIONS ========== */
+        .quality-section {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .quality-image {
+            opacity: 0;
+            animation: fadeInRight 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .quality-image img {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .quality-content {
+            opacity: 0;
+            animation: fadeInLeft 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .quality-title {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .quality-description {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.7s;
+        }
+
+        /* ========== MISSION SECTION ANIMATIONS ========== */
+        .mission-section {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.9s;
+        }
+
+        .mission-top {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1.1s;
+        }
+
+        .mission-image-left {
+            opacity: 0;
+            animation: fadeInLeft 1s ease-out forwards;
+            animation-delay: 1.3s;
+        }
+
+        .mission-image-left img {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        .mission-content {
+            opacity: 0;
+            animation: fadeInRight 1s ease-out forwards;
+            animation-delay: 1.3s;
+        }
+
+        .mission-title {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 1.5s;
+        }
+
+        .mission-subtitle {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 1.6s;
+        }
+
+        .mission-description {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 1.7s;
+        }
+
+        .mission-bottom {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1.8s;
+        }
+
+        .partnership-content {
+            opacity: 0;
+            animation: fadeInLeft 1s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        .partnership-title {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 2.1s;
+        }
+
+        .partnership-description {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 2.2s;
+        }
+
+        .mission-image-right {
+            opacity: 0;
+            animation: fadeInRight 1s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        .mission-image-right img {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 2.2s;
+        }
+
+        .mission-image-left img,
+        .mission-image-right img {
+            transition: transform 0.5s ease;
+        }
+
+        .mission-image-left img:hover,
+        .mission-image-right img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .mission-title,
+        .partnership-title {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-title::after,
+        .partnership-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #00008b;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                width: 0;
+            }
+            to {
+                width: 60px;
+            }
+        }
+
+        /* ========== OFFER CARDS ANIMATIONS ========== */
+        .offer-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.3s ease;
+        }
+
+        .offer-card:nth-child(1) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.1s;
+        }
+
+        .offer-card:nth-child(2) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .offer-card:nth-child(3) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .offer-card:nth-child(4) {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(0, 0, 139, 0.25);
+        }
+
+        .offer-icon {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .offer-card:hover .offer-icon {
+            animation: bounce 0.6s ease;
+        }
+
+        /* ========== PARTNER SECTION ANIMATIONS ========== */
+        .partner-logo {
+            opacity: 0;
+            animation: scaleIn 0.5s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .partner-item:nth-child(1) .partner-logo {
+            animation-delay: 0.1s;
+        }
+
+        .partner-item:nth-child(2) .partner-logo {
+            animation-delay: 0.2s;
+        }
+
+        .partner-item:nth-child(3) .partner-logo {
+            animation-delay: 0.3s;
+        }
+
+        .partner-item:nth-child(4) .partner-logo {
+            animation-delay: 0.4s;
+        }
+
+        .partner-item:nth-child(5) .partner-logo {
+            animation-delay: 0.5s;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.1) rotate(3deg);
+            filter: grayscale(0%) brightness(1.1);
+        }
+
+        /* ========== SCROLL REVEAL ANIMATIONS ========== */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== SECTION TITLES ANIMATIONS ========== */
+        .section-title,
+        .platform-offers-title,
+        .partners-title,
+        .about-title {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* ========== LOADING SHIMMER EFFECT ========== */
+        .shimmer-effect {
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* ========== SMOOTH SCROLL BEHAVIOR ========== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========== REDUCE MOTION FOR ACCESSIBILITY ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>

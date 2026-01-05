@@ -83,6 +83,30 @@
         color: #5B21B6;
         text-decoration: none;
     }
+    .signup-btn {
+        background-color: transparent;
+        color: #00008b !important;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #00008b;
+    }
+    .signup-btn:hover {
+        background-color: #00008b;
+        color: #ffffff !important;
+        text-decoration: none;
+        border-color: #00008b;
+    }
+    .signup-btn svg {
+        width: 18px;
+        height: 18px;
+    }
 html {
   scroll-behavior: smooth;
 }
@@ -269,7 +293,7 @@ html {
                         <a href="/#frontpage-category-names">Course Categories</a>
                     </li>
                      <li class="rui-icon-menu-admin ml-0">
-                        <a href="/#mission_home_section">Mission</a>
+                        <a href="/#mission_home_section">Purpose</a>
                     </li>
                      <li class="rui-icon-menu-admin ml-0">
                         <a href="/#partner_home_section">Partners</a>
@@ -277,6 +301,19 @@ html {
                 </div>
                 {{/output.navbar_plugin_output}}
                 <li class="rui-icon-menu-user m-0">{{{ output.user_menu }}}</li> <!-- this is the log in button -->
+                {{#isnotloggedin}}
+                <li class="rui-icon-menu-signup m-0 ml-2">
+                    <a href="{{{ config.wwwroot }}}/login/signup.php" class="signup-btn">
+                        Sign Up
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11C10.7091 11 12.5 9.20914 12.5 7C12.5 4.79086 10.7091 3 8.5 3C6.29086 3 4.5 4.79086 4.5 7C4.5 9.20914 6.29086 11 8.5 11Z"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 8V14"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 11H17"></path>
+                        </svg>
+                    </a>
+                </li>
+                {{/isnotloggedin}}
             </ul>
 
             <button class="d-flex d-md-none rui-mobile-nav-btn-close rui-topbar-btn text-decoration-none"
