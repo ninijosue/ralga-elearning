@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit"
 import { property, customElement, state } from "lit/decorators.js"
-import type { CourseTrendType, LearningJourneyTrendType, LocationPerformanceTrend, PerformanceLearningMetrics, PositionTrendType } from "./types"
+import type { CourseTrendType, EducationTrendType, LearningJourneyTrendType, LocationPerformanceTrend, PerformanceLearningMetrics, PositionTrendType } from "./types"
 import { years } from "./constants";
 import { downloadCsv, toTitleCase } from "./helpers";
 
@@ -92,6 +92,7 @@ export class DistrictTab extends LitElement {
     this._createProgressChart()
     this._createPositionChart()
     this._createLearningJourneyChart()
+    this._createEducationChart()
     this._createCoursesChart()
     this._createGenderDistributionChart()
     this._createGenderDistributionChartEnrolling()
@@ -431,6 +432,77 @@ export class DistrictTab extends LitElement {
     })
 
     this.charts.set("progress", chart)
+  }
+
+  // ---------Education analysis chart -----------
+  private _createEducationChart(): void {
+    const data = (this.data?.learningAnalytics?.educationAnalytics || []) as EducationTrendType[];
+
+    const canvas = document.querySelector("#educationChart") as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+    this.destroyCharts(canvas);
+    // sort from highest to lowest based on completion count
+    data.sort((a, b) => {
+      const totalA = (a.completions || 0);
+      const totalB = (b.completions || 0);
+      return totalB - totalA;
+    });
+
+    const educationLevels = data.map(d => {
+      // Format education level names for display
+      if(d.name == "a2") return "A2";
+      if(d.name == "a1") return "A1";
+      if(d.name == "a0") return "A0";
+      if(d.name == "masters") return "Master's";
+      if(d.name == "phd") return "PhD";
+      return toTitleCase(d.name);
+    })
+    const enrollmentCounts = data.map(d => d.enrollments)
+    const completionCounts = data.map(d => d.completions)
+    const failureCounts = data.map(d => d.failures)
+
+    const chart = new window.Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: educationLevels,
+        datasets: [
+          {
+            label: "Enrollment",
+            data: enrollmentCounts,
+            backgroundColor: "#F59E0B",
+          },
+          {
+            label: "Completion",
+            data: completionCounts,
+            backgroundColor: "#3B82F6",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom" as const,
+            align: "end",
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0,
+              callback: (value: any) => value,
+            },
+          },
+        },
+      },
+    })
+
+    this.charts.set("education", chart)
   }
 
   // ---------positions analysis chart -----------
@@ -977,11 +1049,18 @@ export class DistrictTab extends LitElement {
 
            <div class="bg-white p-6 rounded-lg shadow">
             <h3 class="text-lg font-semibold text-center text-gray-900 mb-4">Course Completion by learning journey</h3>
-             <!-- <h4 class="text-sm text-gray-800 mb-3" > 
+             <!-- <h4 class="text-sm text-gray-800 mb-3" >
                 Performance trends of positions by enrollment, completion and failure counts.
                 </h4> -->
             <div class="chart-container">
               <canvas id="LearningJourneyChart"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-center text-gray-900 mb-4">Course completion by education</h3>
+            <div class="chart-container">
+              <canvas id="educationChart"></canvas>
             </div>
           </div>
         <!-- Charts Grid -->

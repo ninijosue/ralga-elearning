@@ -1028,6 +1028,56 @@ foreach (array_keys($uniqueCategories) as $categoryName) {
     ];
 }
 
+// ---- Education Analytics (NEW) ----
+$educationAnalytics = [];
+// Get all unique education levels from filtered users
+$uniqueEducation = [];
+foreach ($userDetails as $ud) {
+    if (!in_array($ud->userid, $filteredUserids)) continue;
+    $edu = $ud->education;
+    if ($edu !== null && $edu !== '') {
+        $uniqueEducation[$edu] = true;
+    }
+}
+foreach (array_keys($uniqueEducation) as $educationLevel) {
+    // Users with this education level
+    $educationUserIds = [];
+    foreach ($userDetails as $ud) {
+        if (!in_array($ud->userid, $filteredUserids)) continue;
+        if ($ud->education === $educationLevel) {
+            $educationUserIds[] = $ud->userid;
+        }
+    }
+    if (empty($educationUserIds)) continue;
+    $educationUserIdsStr = implode(',', $educationUserIds);
+
+    // Enrollments for this education level
+    $enrollments = $DB->count_records_sql("
+        SELECT COUNT(*) FROM {user_enrolments} ue
+        JOIN {enrol} e ON ue.enrolid = e.id
+        WHERE ue.userid IN ($educationUserIdsStr) $courseFilterSQL $dateFilter", $allParams);
+
+    // Completions for this education level
+    $completions = $DB->count_records_sql("
+        SELECT COUNT(*) FROM (
+            SELECT cc.userid, cc.course FROM {course_completions} cc JOIN {enrol} e ON cc.course = e.courseid WHERE cc.userid IN ($educationUserIdsStr) AND cc.timecompleted IS NOT NULL $courseFilterSQL
+            UNION
+            SELECT ci.userid, c.course FROM {customcert_issues} ci JOIN {customcert} c ON ci.customcertid = c.id JOIN {enrol} e ON c.course = e.courseid WHERE ci.userid IN ($educationUserIdsStr) $courseFilterSQLForCustomCert
+        ) AS completions", $courseParams);
+
+    // Failures for this education level
+    $failures = $DB->count_records_sql("
+        SELECT COUNT(DISTINCT " . $DB->sql_concat('cc.userid', "'-'", 'cc.course') . ") FROM {course_completions} cc JOIN {enrol} e ON cc.course = e.courseid
+        WHERE cc.userid IN ($educationUserIdsStr) AND cc.timecompleted IS NULL $courseFilterSQL", $courseParams);
+
+    $educationAnalytics[] = [
+        'name' => $educationLevel,
+        'enrollments' => $enrollments,
+        'completions' => $completions,
+        'failures' => $failures
+    ];
+}
+
 $enrollmentAnalytics['metrics']['enrolledStudents'] = $enrolledStudents; // Ensure it's set
 
 // ---- Sex Failling Metrics ----
@@ -1413,6 +1463,7 @@ $learningAnalytics = [
     'positionAnalytics' => $positionData,
     'coursesAnalytics' => $coursesAnalytics,
     'categoriesAnalytics' => $categoriesAnalytics,
+    'educationAnalytics' => $educationAnalytics,
     'metrics' => [
         'totalCourses' => $totalCourses,
         'completedCourses' => $completedCoursesLA,

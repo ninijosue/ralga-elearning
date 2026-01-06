@@ -80,6 +80,12 @@ export interface LearningJourneyTrendType {
       enrollments: number,
       failures: number,
     }
+export interface EducationTrendType {
+      name: string,
+      completions: number,
+      enrollments: number,
+      failures: number,
+    }
 export interface CourseTrendType {
       name: string,
       completions: number,
