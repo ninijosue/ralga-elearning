@@ -75,6 +75,7 @@ export class MainPage extends LitElement {
   @state() private currentStep: number = 1; // Track the current step in the form
   @state() private position: string = '';
   @state() private selectedVillage: String = '';
+  @state() private education: string = '';
 
 
 
@@ -95,6 +96,7 @@ export class MainPage extends LitElement {
   @state() private nationalIdError: string = '';
   @state() private positionError: string = '';
   @state() private villageError: string = '';
+  @state() private educationError: string = '';
 
 
   connectedCallback(): void {
@@ -318,6 +320,31 @@ export class MainPage extends LitElement {
     `
   }
 
+  educationField = () => {
+    const educationLevels = [
+      { value: 'a2', label: 'A2' },
+      { value: 'a1', label: 'A1' },
+      { value: 'a0', label: 'A0' },
+      { value: 'masters', label: "Master's" },
+      { value: 'phd', label: 'PhD' }
+    ];
+
+    return html`
+      <search-field
+        label="Education Level"
+        name="education"
+        placeholder="Select education level"
+        searchPlaceholder="Search education level..."
+        options=${JSON.stringify(educationLevels)}
+        .onChange=${(value: string) => {
+          this.education = value;
+        }}
+        required
+        .errorMessage=${this.educationError}
+      ></search-field>
+    `
+  }
+
   onSubmit = async (e: Event) => {
     e.preventDefault();
     this.resetErrors();
@@ -344,7 +371,8 @@ export class MainPage extends LitElement {
       email: this.email,
       firstname: this.firstName,
       lastname: this.lastName,
-      position: this.position.toLowerCase()
+      position: this.position.toLowerCase(),
+      education: this.education.toLowerCase()
     };
     try {
       this.loading = true;
@@ -583,9 +611,9 @@ export class MainPage extends LitElement {
                 {"value": "cell", "label": "Cell Level"},
                 {"value": "village", "label": "Village Level"},
                 {"value": "health", "label": "Health Facility"},
-                {"value": "embassy", "label": "Embassy"},
                 {"value": "other", "label": "other"}
               ]'
+             
             ></search-field>
         </div>
         ${this.serviceCategory === "district" ? html`
@@ -649,18 +677,20 @@ export class MainPage extends LitElement {
         `: ""}
         ${this.serviceCategory !== "other"
         ? html`
-          <div class="grid grid-cols-1 gap-6 mt-[30px!important] md:px-6 ">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-[30px!important] md:px-6 ">
             ${this.positionField()}
+            ${this.educationField()}
           </div>
           `: html`
-          <div class="grid grid-cols-1 gap-6 mt-[30px!important] md:px-6 ">
-            <form-field label="Position" type="text" 
-            placeholder="Enter your position" 
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-[30px!important] md:px-6 ">
+            <form-field label="Position" type="text"
+            placeholder="Enter your position"
             name="otherValueForPosition" id="otherValueForPosition"
             .value=${this.position}
             .onChange=${(value: string) => this.position = value}
             required .errorMessage=${this.otherSpecifiedError}
               size="large" variant="primary"></form-field>
+            ${this.educationField()}
           </div>
           `
       }
@@ -793,6 +823,10 @@ export class MainPage extends LitElement {
         this.positionError = "Position is required.";
         valid = false;
       }
+      if (!this.education.trim()) {
+        this.educationError = "Education level is required.";
+        valid = false;
+      }
     }
     return valid;
   }
@@ -814,6 +848,7 @@ export class MainPage extends LitElement {
     this.otherSpecifiedError = '';
     this.positionError = '';
     this.villageError = '';
+    this.educationError = '';
   }
 
   sectorPostions = [

@@ -12,7 +12,8 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: RALGA E-Learning Platform with custom theme\n\n- Moodle-based e-learning platform with Docker setup\n- Custom Space theme with redesigned frontpage\n- Hero section with \"Learn, Grow and Serve\" messaging\n- Quality Training section\n- Mission and Partnership sections\n- Platform Offers section with diamond-shaped cards\n- Blue color theme (#1C9FF9)\n- Custom analytics dashboard block\n- Additional user details registration plugin\n- MariaDB database configuration\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(docker info:*)"
+      "Bash(docker info:*)",
+      "Bash(pnpm run build:*)"
     ],
     "deny": [],
     "ask": []

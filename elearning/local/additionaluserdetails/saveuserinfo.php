@@ -29,6 +29,7 @@ $phonenumber = optional_param('phonenumber','', PARAM_TEXT);
 $email = optional_param('email','', PARAM_TEXT);
 $position = optional_param('position','', PARAM_TEXT);
 $village = optional_param('village','', PARAM_TEXT);
+$education = optional_param('education','', PARAM_TEXT);
 
 $record = new stdClass();
 $record->userid = $USER->id;
@@ -47,6 +48,7 @@ $record->phonenumber = $phonenumber;
 $record->email = $email;
 $record->position = $position;
 $record->village = $village;
+$record->education = $education;
 
 // Check if the record already exists for this user
 $existing = $DB->get_record('additional_user_details', ['userid' => $USER->id]);
