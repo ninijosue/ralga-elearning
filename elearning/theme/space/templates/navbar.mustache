@@ -40,6 +40,9 @@
 
 {{^output.navbar_plugin_output}}
 <style>
+    a[id="itemFiles"] {
+    display: none !important;
+}
     .rui-topbar-wrapper {
         height: 80px;
         display: flex;
@@ -109,6 +112,9 @@
     }
 html {
   scroll-behavior: smooth;
+}
+a[id="itemFiles"] {
+    display: none !important;
 }
 @media (max-width: 999.98px) {
   .more-menu-nav{
@@ -334,5 +340,11 @@ html {
     {{^output.navbar_plugin_output}}
         </div>
     {{/output.navbar_plugin_output}}
+
+    <style>
+         a[id="itemFiles"] {
+    display: none !important;
+}
+        </style>
     
 </nav>

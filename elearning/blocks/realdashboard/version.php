@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_realdashboard';
-$plugin->release = '0.1.0';
-$plugin->version = 2025071000;
+$plugin->release = '0.1.1';
+$plugin->version = 2026010600;
 $plugin->requires = 2016052300;
 $plugin->maturity = MATURITY_ALPHA;
