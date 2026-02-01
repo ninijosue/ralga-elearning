@@ -14,7 +14,10 @@
       "Bash(git push:*)",
       "Bash(docker info:*)",
       "Bash(pnpm run build:*)",
-      "Bash(pnpm run clean:*)"
+      "Bash(pnpm run clean:*)",
+      "Bash(init-scripts/initial.sql)",
+      "Bash(docker exec:*)",
+      "Bash(init-scripts/init2.sql)"
     ],
     "deny": [],
     "ask": []
